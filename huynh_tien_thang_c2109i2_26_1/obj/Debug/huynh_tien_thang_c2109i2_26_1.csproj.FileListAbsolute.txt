@@ -1,0 +1,16 @@
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\bin\Debug\huynh_tien_thang_c2109i2_26_1.exe.config
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\bin\Debug\huynh_tien_thang_c2109i2_26_1.exe
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\bin\Debug\huynh_tien_thang_c2109i2_26_1.pdb
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\bin\Debug\EntityFramework.dll
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\bin\Debug\EntityFramework.xml
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\obj\Debug\huynh_tien_thang_c2109i2_26_1.csproj.AssemblyReference.cache
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\obj\Debug\huynh_tien_thang_c2109i2_26_1.csproj.SuggestedBindingRedirects.cache
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\obj\Debug\huynh_tien_thang_c2109i2_26_1.Form1.resources
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\obj\Debug\huynh_tien_thang_c2109i2_26_1.Properties.Resources.resources
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\obj\Debug\huynh_tien_thang_c2109i2_26_1.csproj.GenerateResource.cache
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\obj\Debug\huynh_tien_thang_c2109i2_26_1.csproj.CoreCompileInputs.cache
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\obj\Debug\huynh_tien_thang_c2109i2_26_1.csproj.CopyComplete
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\obj\Debug\huynh_tien_thang_c2109i2_26_1.exe
+C:\Users\ACER\source\repos\C2109I2Csharp\huynh_tien_thang_c2109i2_text\huynh_tien_thang_c2109i2_26_1\obj\Debug\huynh_tien_thang_c2109i2_26_1.pdb

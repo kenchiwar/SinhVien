@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="189af17f529c4a6c9835c9cec936edd6" Name="Diagram1">
+        <EntityTypeShape EntityType="SinhVienModel.TblCourse" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SinhVienModel.TblExam" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SinhVienModel.TblStudent" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="SinhVienModel.Fk_TblExam_TblCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="SinhVienModel.FK_TblExam_TblStudent" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

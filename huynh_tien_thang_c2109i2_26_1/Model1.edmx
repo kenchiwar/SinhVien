@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SinhVienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TblCourse">
+          <Key>
+            <PropertyRef Name="CouId" />
+          </Key>
+          <Property Name="CouId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CouName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CouSemester" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblExam">
+          <Key>
+            <PropertyRef Name="ExamId" />
+          </Key>
+          <Property Name="ExamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExamName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExamMark" Type="float" />
+          <Property Name="ExamDate" Type="date" />
+          <Property Name="StuId" Type="int" />
+          <Property Name="CouId" Type="int" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="MarkPass" Type="int" />
+        </EntityType>
+        <EntityType Name="TblStudent">
+          <Key>
+            <PropertyRef Name="StuId" />
+          </Key>
+          <Property Name="StuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StuPass" Type="nvarchar" MaxLength="50" />
+          <Property Name="StuAdress" Type="nvarchar" MaxLength="50" />
+          <Property Name="StuPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="StuEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="StuName" Type="nvarchar" MaxLength="50" />
+          <Property Name="deptId" Type="int" />
+        </EntityType>
+        <Association Name="Fk_TblExam_TblCourse">
+          <End Role="TblCourse" Type="Self.TblCourse" Multiplicity="0..1" />
+          <End Role="TblExam" Type="Self.TblExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCourse">
+              <PropertyRef Name="CouId" />
+            </Principal>
+            <Dependent Role="TblExam">
+              <PropertyRef Name="StuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblExam_TblStudent">
+          <End Role="TblStudent" Type="Self.TblStudent" Multiplicity="0..1" />
+          <End Role="TblExam" Type="Self.TblExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblStudent">
+              <PropertyRef Name="StuId" />
+            </Principal>
+            <Dependent Role="TblExam">
+              <PropertyRef Name="StuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SinhVienModelStoreContainer">
+          <EntitySet Name="TblCourse" EntityType="Self.TblCourse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblExam" EntityType="Self.TblExam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblStudent" EntityType="Self.TblStudent" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Fk_TblExam_TblCourse" Association="Self.Fk_TblExam_TblCourse">
+            <End Role="TblCourse" EntitySet="TblCourse" />
+            <End Role="TblExam" EntitySet="TblExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblExam_TblStudent" Association="Self.FK_TblExam_TblStudent">
+            <End Role="TblStudent" EntitySet="TblStudent" />
+            <End Role="TblExam" EntitySet="TblExam" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SinhVienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TblCourse">
+          <Key>
+            <PropertyRef Name="CouId" />
+          </Key>
+          <Property Name="CouId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CouName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CouSemester" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblExams" Relationship="Self.Fk_TblExam_TblCourse" FromRole="TblCourse" ToRole="TblExam" />
+        </EntityType>
+        <EntityType Name="TblExam">
+          <Key>
+            <PropertyRef Name="ExamId" />
+          </Key>
+          <Property Name="ExamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExamName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExamMark" Type="Double" />
+          <Property Name="ExamDate" Type="DateTime" Precision="0" />
+          <Property Name="StuId" Type="Int32" />
+          <Property Name="CouId" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MarkPass" Type="Int32" />
+          <NavigationProperty Name="TblCourse" Relationship="Self.Fk_TblExam_TblCourse" FromRole="TblExam" ToRole="TblCourse" />
+          <NavigationProperty Name="TblStudent" Relationship="Self.FK_TblExam_TblStudent" FromRole="TblExam" ToRole="TblStudent" />
+        </EntityType>
+        <EntityType Name="TblStudent">
+          <Key>
+            <PropertyRef Name="StuId" />
+          </Key>
+          <Property Name="StuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StuPass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StuAdress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StuPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StuEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="deptId" Type="Int32" />
+          <NavigationProperty Name="TblExams" Relationship="Self.FK_TblExam_TblStudent" FromRole="TblStudent" ToRole="TblExam" />
+        </EntityType>
+        <Association Name="Fk_TblExam_TblCourse">
+          <End Role="TblCourse" Type="Self.TblCourse" Multiplicity="0..1" />
+          <End Role="TblExam" Type="Self.TblExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCourse">
+              <PropertyRef Name="CouId" />
+            </Principal>
+            <Dependent Role="TblExam">
+              <PropertyRef Name="StuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblExam_TblStudent">
+          <End Role="TblStudent" Type="Self.TblStudent" Multiplicity="0..1" />
+          <End Role="TblExam" Type="Self.TblExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblStudent">
+              <PropertyRef Name="StuId" />
+            </Principal>
+            <Dependent Role="TblExam">
+              <PropertyRef Name="StuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SinhVienEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TblCourses" EntityType="Self.TblCourse" />
+          <EntitySet Name="TblExams" EntityType="Self.TblExam" />
+          <EntitySet Name="TblStudents" EntityType="Self.TblStudent" />
+          <AssociationSet Name="Fk_TblExam_TblCourse" Association="Self.Fk_TblExam_TblCourse">
+            <End Role="TblCourse" EntitySet="TblCourses" />
+            <End Role="TblExam" EntitySet="TblExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblExam_TblStudent" Association="Self.FK_TblExam_TblStudent">
+            <End Role="TblStudent" EntitySet="TblStudents" />
+            <End Role="TblExam" EntitySet="TblExams" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SinhVienModelStoreContainer" CdmEntityContainer="SinhVienEntities">
+          <EntitySetMapping Name="TblCourses">
+            <EntityTypeMapping TypeName="SinhVienModel.TblCourse">
+              <MappingFragment StoreEntitySet="TblCourse">
+                <ScalarProperty Name="CouId" ColumnName="CouId" />
+                <ScalarProperty Name="CouName" ColumnName="CouName" />
+                <ScalarProperty Name="CouSemester" ColumnName="CouSemester" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblExams">
+            <EntityTypeMapping TypeName="SinhVienModel.TblExam">
+              <MappingFragment StoreEntitySet="TblExam">
+                <ScalarProperty Name="ExamId" ColumnName="ExamId" />
+                <ScalarProperty Name="ExamName" ColumnName="ExamName" />
+                <ScalarProperty Name="ExamMark" ColumnName="ExamMark" />
+                <ScalarProperty Name="ExamDate" ColumnName="ExamDate" />
+                <ScalarProperty Name="StuId" ColumnName="StuId" />
+                <ScalarProperty Name="CouId" ColumnName="CouId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="MarkPass" ColumnName="MarkPass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblStudents">
+            <EntityTypeMapping TypeName="SinhVienModel.TblStudent">
+              <MappingFragment StoreEntitySet="TblStudent">
+                <ScalarProperty Name="StuId" ColumnName="StuId" />
+                <ScalarProperty Name="StuPass" ColumnName="StuPass" />
+                <ScalarProperty Name="StuAdress" ColumnName="StuAdress" />
+                <ScalarProperty Name="StuPhone" ColumnName="StuPhone" />
+                <ScalarProperty Name="StuEmail" ColumnName="StuEmail" />
+                <ScalarProperty Name="StuName" ColumnName="StuName" />
+                <ScalarProperty Name="deptId" ColumnName="deptId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

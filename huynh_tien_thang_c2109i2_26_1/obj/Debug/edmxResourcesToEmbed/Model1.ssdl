@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SinhVienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TblCourse">
+    <Key>
+      <PropertyRef Name="CouId" />
+    </Key>
+    <Property Name="CouId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CouName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CouSemester" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TblExam">
+    <Key>
+      <PropertyRef Name="ExamId" />
+    </Key>
+    <Property Name="ExamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExamName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExamMark" Type="float" />
+    <Property Name="ExamDate" Type="date" />
+    <Property Name="StuId" Type="int" />
+    <Property Name="CouId" Type="int" />
+    <Property Name="Comment" Type="text" />
+    <Property Name="MarkPass" Type="int" />
+  </EntityType>
+  <EntityType Name="TblStudent">
+    <Key>
+      <PropertyRef Name="StuId" />
+    </Key>
+    <Property Name="StuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StuPass" Type="nvarchar" MaxLength="50" />
+    <Property Name="StuAdress" Type="nvarchar" MaxLength="50" />
+    <Property Name="StuPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="StuEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="StuName" Type="nvarchar" MaxLength="50" />
+    <Property Name="deptId" Type="int" />
+  </EntityType>
+  <Association Name="Fk_TblExam_TblCourse">
+    <End Role="TblCourse" Type="Self.TblCourse" Multiplicity="0..1" />
+    <End Role="TblExam" Type="Self.TblExam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCourse">
+        <PropertyRef Name="CouId" />
+      </Principal>
+      <Dependent Role="TblExam">
+        <PropertyRef Name="StuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblExam_TblStudent">
+    <End Role="TblStudent" Type="Self.TblStudent" Multiplicity="0..1" />
+    <End Role="TblExam" Type="Self.TblExam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblStudent">
+        <PropertyRef Name="StuId" />
+      </Principal>
+      <Dependent Role="TblExam">
+        <PropertyRef Name="StuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SinhVienModelStoreContainer">
+    <EntitySet Name="TblCourse" EntityType="Self.TblCourse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblExam" EntityType="Self.TblExam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblStudent" EntityType="Self.TblStudent" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Fk_TblExam_TblCourse" Association="Self.Fk_TblExam_TblCourse">
+      <End Role="TblCourse" EntitySet="TblCourse" />
+      <End Role="TblExam" EntitySet="TblExam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblExam_TblStudent" Association="Self.FK_TblExam_TblStudent">
+      <End Role="TblStudent" EntitySet="TblStudent" />
+      <End Role="TblExam" EntitySet="TblExam" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

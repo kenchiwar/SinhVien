@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SinhVienModelStoreContainer" CdmEntityContainer="SinhVienEntities">
+    <EntitySetMapping Name="TblCourses">
+      <EntityTypeMapping TypeName="SinhVienModel.TblCourse">
+        <MappingFragment StoreEntitySet="TblCourse">
+          <ScalarProperty Name="CouId" ColumnName="CouId" />
+          <ScalarProperty Name="CouName" ColumnName="CouName" />
+          <ScalarProperty Name="CouSemester" ColumnName="CouSemester" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblExams">
+      <EntityTypeMapping TypeName="SinhVienModel.TblExam">
+        <MappingFragment StoreEntitySet="TblExam">
+          <ScalarProperty Name="ExamId" ColumnName="ExamId" />
+          <ScalarProperty Name="ExamName" ColumnName="ExamName" />
+          <ScalarProperty Name="ExamMark" ColumnName="ExamMark" />
+          <ScalarProperty Name="ExamDate" ColumnName="ExamDate" />
+          <ScalarProperty Name="StuId" ColumnName="StuId" />
+          <ScalarProperty Name="CouId" ColumnName="CouId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="MarkPass" ColumnName="MarkPass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblStudents">
+      <EntityTypeMapping TypeName="SinhVienModel.TblStudent">
+        <MappingFragment StoreEntitySet="TblStudent">
+          <ScalarProperty Name="StuId" ColumnName="StuId" />
+          <ScalarProperty Name="StuPass" ColumnName="StuPass" />
+          <ScalarProperty Name="StuAdress" ColumnName="StuAdress" />
+          <ScalarProperty Name="StuPhone" ColumnName="StuPhone" />
+          <ScalarProperty Name="StuEmail" ColumnName="StuEmail" />
+          <ScalarProperty Name="StuName" ColumnName="StuName" />
+          <ScalarProperty Name="deptId" ColumnName="deptId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
